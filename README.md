@@ -1,3 +1,3 @@
 # Programmers
 
-## Programmers 문제풀이 연습
+Programmers 문제풀이 연습
