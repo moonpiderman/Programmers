@@ -2,7 +2,7 @@
 
 ## Quiz
 
-![initial](https://user-images.githubusercontent.com/70942197/116040326-d861c480-a6a6-11eb-8ec1-7e1aebf5509c.png)
+![initial](https://user-images.githubusercontent.com/70942197/116043532-bcf8b880-a6aa-11eb-8d66-be9ffea7e647.png)
 
 ## Solution
 
