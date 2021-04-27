@@ -2,11 +2,10 @@
 
 ## Quiz
 
-![initial](https://user-images.githubusercontent.com/70942197/116091296-a456c580-a6df-11eb-8148-5fe058d73121.png)
+![initial](https://user-images.githubusercontent.com/70942197/116184208-42877180-a75a-11eb-8ff8-5a331e929ac1.png)
 
 ## Solution
 
-1. 해시 알고리즘에 대한 이해가 필요하다.
-2. get 함수를 이용해 해당 value값이 존재하면 1을 넣어주고 같은 값이 등장하면 +1
-3. completion 리스트에 같은 값이 있다면 -1을 해준다.
-4. items 함수를 활용해 key와 value를 얻어낸다.
+1. 2차리스트에 대한 개념을 가지고 조금만 고민한다면 쉽게 풀 수 있다.
+2. check_list를 만드는 것, 그것을 정렬하는 것, 몇 번째의 숫자를 어떻게 뽑아야하는지
+3. 위의 3가지만 충족시키면 간단히 풀 수 있는 문제이다.
