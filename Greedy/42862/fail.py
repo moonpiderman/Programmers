@@ -1,6 +1,5 @@
 def solution(n, lost, reserve):
     answer = 0
-    answer += n - len(lost)
 
     for res_stu in reserve:
         for lo_stu in lost:
@@ -8,4 +7,5 @@ def solution(n, lost, reserve):
                 answer += 1
                 lost.remove(lo_stu)
 
+    answer = n - len(lost)
     return answer
