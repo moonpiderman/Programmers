@@ -14,3 +14,10 @@ def solution(progresses, speeds):
             second += 1
     return_value.append(count)
     return return_value
+
+
+p = [95, 90, 99, 99, 80, 99]
+s = [1, 1, 1, 1, 1, 1]
+
+a = solution(p, s)
+print(a)
