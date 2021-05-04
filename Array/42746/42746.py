@@ -1,51 +1,12 @@
 def solution(numbers):
-    answer = ''
-    test = [c for c in a]
+    l = ''
+    numbers = list(map(str, numbers))
+    numbers.sort(key=lambda x: x * 3, reverse=True)
 
-    for i, j in enumerate(test):
-        if j >= 10:
-            while j > 0:
-                j = j // 10
-                if j > 0 and j < 10:
-                    break
-            test[i] = j
-
-    for i, j in enumerate(test):
-        if j == max(test):
-            answer += str(numbers[i])
-            numbers.remove(numbers[i])
-            test.remove(j)
-    answer += str(numbers[0])
-    return answer
+    return str(int(''.join(numbers)))
 
 
-a = [6, 10, 2]
-l = ''
+# a = [3, 30, 34, 5, 9]
+a = [0, 0, 0, 0]
 
-# dic = {i: j for i, j in enumerate(a)}
-# print(dic)
-
-test = [c for c in a]
-
-for i, j in enumerate(test):
-    if j >= 10:
-        while j > 0:
-            j = j // 10
-            if j > 0 and j < 10:
-                break
-        test[i] = j
-
-for i, j in enumerate(test):
-    if j == max(test):
-        l += str(a[i])
-        a.remove(a[i])
-        test.remove(j)
-l += str(a[0])
-
-print(l)
-
-
-# for i in range(len(a)):
-#     l += str(a[i])
-# l = int(l)
-# print(l)
+print(solution(a))
