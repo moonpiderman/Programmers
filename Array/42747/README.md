@@ -21,4 +21,5 @@
 
 ### 🧑‍💻 Solution
 
-> 1.
+> 1. reverse로 sort한다.
+> 2. enumerate 함수를 사용해서 최솟값을 형성한 다음 mapping 해주고 max값을 answer에 대입하여준다.
