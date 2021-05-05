@@ -18,3 +18,10 @@ print(test1)
 test2 = list(map(min, enumerate(c, start=1)))
 print(test2)
 '''
+
+test = [10, 11, 33, 8, 9, 22, 7, 1]
+test1 = list(enumerate(test, start=1))
+print(test1)
+
+test2 = list(map(min, enumerate(test, start=1)))
+print(test2)
