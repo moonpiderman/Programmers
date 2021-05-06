@@ -26,4 +26,8 @@
 - 6개의 문서(A, B, C, D, E, F)가 인쇄 대기목록에 있고 중요도가 1 1 9 1 1 1 이므로 C D E F A B 순으로 인쇄합니다.
 
 ### 👨‍💻 Solution
-> 1. 
+
+> 1. enumerate 함수를 사용해서 queue를 만들어준다.
+> 2. max값이 popleft한 리스트보다 크면 queue의 맨 끝에 붙여준다.
+> 3. 그렇지 않은 경우에는 answer에 1을 더해준다.
+> 4. 마지막에 location을 비교해서 answer를 반환해준다.
