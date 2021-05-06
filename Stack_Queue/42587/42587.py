@@ -63,7 +63,6 @@ d = deque([(v, i) for i, v in enumerate(priorities)])
 
 while len(d):
     val = d.popleft()
-    print(val)
     if d and max(d)[0] > val[0]:
         d.append(val)
     else:
