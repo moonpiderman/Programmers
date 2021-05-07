@@ -33,5 +33,7 @@ for clo in clothes :
 for type_cloth in closet.keys() :
     answer = answer * (len(closet[type_cloth]) + 1)
 
+# print(closet)
+
 answer -= 1
 print(answer)
