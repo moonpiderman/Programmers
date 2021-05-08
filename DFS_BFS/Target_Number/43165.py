@@ -1,5 +1,9 @@
+from collections import deque
+
 def solution(numbers, target):
     answer = 0
+    # 조합이 target과 맞는 경우 answer += 1
+
     return answer
 
 
