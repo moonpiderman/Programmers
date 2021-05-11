@@ -23,4 +23,10 @@
 
 ### 🧑‍💻 Solution
 
-> 1. 
+> 1. stack과 queue 두가지로 풀 수 있다.
+> 2. numbers를 전부 탐색했는지 확인하기 위해서 인덱스 값을 부여해서 비교해준다.
+> 3. 이 때 stack이나 queue를 딕셔너리처럼 key와 value를 사용한다.
+> 4. 입력받은 첫번째 값을 pop 해주어서 queue나 stack에 넣어준다.
+> 여기서 -1을 곱해준 두 값을 지정해준다.
+> 5. 더하거나 빼준 total 값을 다음 value 값(-1을 곱해준 것 혹은 그렇지 않은 것)과 더해준다.
+> 6. numbers를 모두 탐색했다면, total값과 target이 같은지 비교 후에, 같으면 answer에 +1
