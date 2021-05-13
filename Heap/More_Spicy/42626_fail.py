@@ -7,15 +7,19 @@ def solution(scoville, K):
     answer = 0
     heapq.heapify(scoville)
 
-    while scoville[0] < K :
-        if len(scoville) > 1 :
-            first = heapq.heappop(scoville)
+    while scoville :
+        first = heapq.heappop(scoville)
+        if first < K and len(scoville) >= 1:
             second = heapq.heappop(scoville)
             heapq.heappush(scoville, func_scoville(first, second))
             answer += 1
         else :
-            return -1
+            break
 
+    # 싹 다 돌렸는데 scoville 이 K를 넘지 못할 때
+    if scoville == None :
+        if first < K :
+            answer = -1
     return answer
 
 if __name__ == '__main__' :
