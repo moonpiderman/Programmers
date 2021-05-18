@@ -1,4 +1,4 @@
-### 🧑‍💻 [문제 No. 12899](https://programmers.co.kr/learn/courses/30/lessons/12911)
+### 🧑‍💻 [다음 큰 숫자](https://programmers.co.kr/learn/courses/30/lessons/12911)
 
 > - 자연수 n이 주어졌을 때, n의 다음 큰 숫자는 다음과 같이 정의 합니다.
 >> - 조건 1. n의 다음 큰 숫자는 n보다 큰 자연수 입니다.
