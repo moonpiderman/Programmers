@@ -29,7 +29,6 @@ for clo in clothes :
         closet[type_cloth].append(name_cloth)
     else :
         closet[type_cloth] = [name_cloth]
-
 for type_cloth in closet.keys() :
     answer = answer * (len(closet[type_cloth]) + 1)
 
