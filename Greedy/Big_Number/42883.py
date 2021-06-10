@@ -2,9 +2,12 @@ from itertools import permutations
 
 def solution(number, k):
     answer = ''
+    chk = []
     number = list(number)
     permu = list(permutations(number, k))
-    print(permu)
+
+    # print(permu)
+    
 
     return answer
 
