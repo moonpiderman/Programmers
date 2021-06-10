@@ -1,15 +1,28 @@
 from itertools import permutations
 
-def solution(number, k):
-    answer = ''
-    chk = []
+def solution_fail(number, k):
     number = list(number)
-    permu = list(permutations(number, k))
+    permu = list(permutations(number, len(number) - k))
+    next = []
+    an = [None for r in range(len(permu))]
 
-    # print(permu)
-    
+    for i in permu :
+        next.append(list(i))
+
+    for i in range(len(next)) :
+        chk = "".join(next[i])
+        an[i] = chk
+
+    an = list(map(int, an))
+    answer = str(max(an))
 
     return answer
+
+def solution(number, k) :
+    answer = ''
+
+    return answer
+
 
 if __name__ == '__main__' :
     number_1 = "1924"
@@ -21,4 +34,4 @@ if __name__ == '__main__' :
     number_3 = "4177252841"
     k_3 = 4
 
-    solution(number_1, k_1)
+    print(solution(number_2, k_2))
