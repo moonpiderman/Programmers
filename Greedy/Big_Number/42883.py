@@ -34,4 +34,5 @@ if __name__ == '__main__' :
     number_3 = "4177252841"
     k_3 = 4
 
-    print(solution(number_2, k_2))
+    print(solution_fail(number_2, k_2))
+    # print(solution(number_2, k_2))
