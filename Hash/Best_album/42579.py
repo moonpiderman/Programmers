@@ -9,12 +9,14 @@ def solution(genres, plays):
         total_plays[genre] = total_plays.get(genre, 0) + play
         numbering[genre] = numbering.get(genre, []) + [(play, i)]
 
-    genreSort = sorted(total_plays.items(), reverse=True)
+    genreSort = sorted(total_plays.items(), key = lambda x: x[1], reverse=True)
 
+    # print(numbering)
     for (genre, counts) in genreSort :
-        numbering[genre] = sorted(numbering[genre], key=lambda x: (-x[0], x[1]))
+        numbering[genre] = sorted(numbering[genre], key = lambda x: (-x[0], x[1]))
+        # lambda에 -를 붙여줘야 내림차순으로 정렬가능하다.
         answer += [ i for play, i in numbering[genre][:2] ]
-
+    # print(numbering)
     return answer
 
 if __name__ == '__main__' :
