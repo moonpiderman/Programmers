@@ -15,6 +15,7 @@ def solution(genres, plays):
     for (genre, counts) in genreSort :
         numbering[genre] = sorted(numbering[genre], key = lambda x: (-x[0], x[1]))
         # lambda에 -를 붙여줘야 내림차순으로 정렬가능하다.
+        # 중간중간 print를 넣어서 확인 가능
         answer += [ i for play, i in numbering[genre][:2] ]
 
     return answer
