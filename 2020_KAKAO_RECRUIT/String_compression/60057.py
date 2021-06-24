@@ -9,6 +9,7 @@ def solution(s):
         count = 1
         tmp = s[:trim]
         for i in range(trim, len(s), trim) :
+            # 같은 구간만큼 체크
             if s[i : i+trim] == tmp :
                 count += 1
             else :
