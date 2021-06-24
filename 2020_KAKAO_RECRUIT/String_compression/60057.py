@@ -27,6 +27,34 @@ def solution(s):
 
     return min(length)
 
+def solution_mine(s) :
+    length = []
+    string = ""
+    s_len = len(s)
+
+    if s_len == 1 :
+        return 1
+
+    for trim in range(1, s_len // 2 + 1) :
+        count = 1
+        tmp = s[:trim]
+        for i in range(trim, s_len, trim) :
+            if tmp == s[i : i+trim] :
+                count += 1
+            else :
+                if count == 1:
+                    count = ""
+                string += str(count) + tmp
+                tmp = s[i : i+trim]
+                count = 1
+        if count == 1:
+            count = ""
+        string += str(count) + tmp
+        length.append(len(string))
+        string = ""
+
+    return min(length)
+
 if __name__ == '__main__' :
     s_1 = "aabbaccc"
     s_2 = "ababcdcdababcdcd"
