@@ -1,5 +1,12 @@
 def solution(absolutes, signs):
-    answer = 123456789
+    answer = 0
+
+    for i in range(len(signs)) :
+        if signs[i] == False :
+            absolutes[i] *= -1
+
+    answer = sum(absolutes)
+
     return answer
 
 if __name__ == '__main__' :
