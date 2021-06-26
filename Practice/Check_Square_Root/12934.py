@@ -1,5 +1,13 @@
+import math
+
 def solution(n):
-    answer = 0
+    n = math.sqrt(n)
+
+    if n % 1 != 0 :
+        answer = -1
+    else :
+        n += 1
+        answer = int(math.pow(n, 2))
     return answer
 
 if __name__ == '__main__' :
