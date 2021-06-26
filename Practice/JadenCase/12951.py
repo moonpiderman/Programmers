@@ -1,4 +1,4 @@
-def solution(s):
+def solution_fail(s):
     answer = ''
     s = s.lower()
     string = s.split(' ')
@@ -18,6 +18,10 @@ def solution(s):
     del answer[-1]
     answer = "".join(answer)
 
+    return answer
+
+def solution(s) :
+    answer = ''
     return answer
 
 if __name__ == '__main__' :
