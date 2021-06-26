@@ -22,7 +22,14 @@ def solution_fail(s):
 
 def solution(s) :
     answer = ''
-    return answer
+    s = s.lower()
+    string = s.split(' ')
+
+    for word in string :
+        word = word.capitalize()
+        answer += word + " "
+
+    return answer[:-1]
 
 if __name__ == '__main__' :
     s_1 = "3people unFollowed me"
