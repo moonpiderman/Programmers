@@ -1,4 +1,3 @@
-import operator
 def solution(N, stages):
     answer = [] # 실패율 저장
     stack = []
@@ -22,8 +21,6 @@ def solution(N, stages):
     for i in range(1, len(dic) + 1) :
         dic[i] = dic[i] / ppl
         ppl -= 1
-
-    
 
     return answer
 
