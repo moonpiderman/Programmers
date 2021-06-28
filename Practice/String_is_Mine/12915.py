@@ -16,5 +16,5 @@ if __name__ == '__main__' :
     strings_2 = ["abce", "abcd", "cdx"]
     n_2 = 2
 
-    # print(solution(strings_1, n_1))
+    print(solution(strings_1, n_1))
     print(solution(strings_2, n_2))
