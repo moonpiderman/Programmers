@@ -1,5 +1,9 @@
+def failure_rate(parent, desc):
+    rate = 0
+    return rate
+
 def solution(N, stages):
-    answer = []
+    answer = [] # 실패율 저장
     stack = []
     dic = {}
 
@@ -15,6 +19,9 @@ def solution(N, stages):
             if i == stack[j] :
                 cnt += 1
         dic[i] = cnt
+    # print(dic)
+
+
 
 
     return answer
