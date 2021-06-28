@@ -1,11 +1,9 @@
-def failure_rate(parent, desc):
-    rate = 0
-    return rate
-
+import operator
 def solution(N, stages):
     answer = [] # 실패율 저장
     stack = []
     dic = {}
+    ppl = len(stages)
 
     # N보다 높은 영역 삭제
     for s in stages :
@@ -19,10 +17,13 @@ def solution(N, stages):
             if i == stack[j] :
                 cnt += 1
         dic[i] = cnt
-    # print(dic)
 
+    # i를 dic의 key로 접근
+    for i in range(1, len(dic) + 1) :
+        dic[i] = dic[i] / ppl
+        ppl -= 1
 
-
+    
 
     return answer
 
