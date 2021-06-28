@@ -1,5 +1,16 @@
 def solution(d, budget):
     answer = 0
+    result = 0
+    d = sorted(d)
+
+    for i in d :
+        result += i
+        if result <= budget :
+            answer += 1
+            continue
+        else :
+            break
+
     return answer
 
 if __name__ == '__main__' :
