@@ -1,5 +1,15 @@
 def solution(arr1, arr2):
-    answer = [[]]
+    answer = []
+    row = len(arr1)
+    col = len(arr1[0])
+
+    for r in range(row) :
+        tmp = []
+        for c in range(col) :
+            result = arr1[r][c] + arr2[r][c]
+            tmp.append(result)
+        answer.append(tmp)
+
     return answer
 
 if __name__ == '__main__' :
