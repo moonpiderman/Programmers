@@ -4,6 +4,8 @@ def solution(N, stages):
     dic = {}
     ppl = len(stages)
 
+    fuck = [0 for r in range(N)]
+
     # N보다 높은 영역 삭제
     for s in stages :
         if s <= N :
@@ -11,17 +13,19 @@ def solution(N, stages):
 
     # key: stage 번호, value: 해당 스테이지를 넘지 못한 유저 수
     for i in range(1, N + 1) :
-        cnt = 0
-        for j in range(len(stack)) :
-            if i == stack[j] :
-                cnt += 1
-        dic[i] = cnt
+        if ppl == 0 :
+            dic[i] = 0
+        else :
+            fuck[i-1] = stack.count(i)
+            dic[i] = fuck[i-1]
+            tmp = ppl
+            ppl -= dic[i]
+            dic[i] = dic[i] / tmp
 
-    # i를 dic의 key로 접근
-    for i in range(1, len(dic) + 1) :
-        dic[i] = dic[i] / ppl
-        ppl -= 1
+    real = sorted(dic.items(), reverse=True, key=lambda item: item[1])
 
+    for i in range(len(real)) :
+        answer.append(real[i][0])
     return answer
 
 
