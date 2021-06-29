@@ -1,5 +1,11 @@
+from collections import deque
+
 def solution(dartResult):
     answer = 0
+    dartResult = deque(dartResult)
+
+    print(dartResult)
+
     return answer
 
 if __name__ == '__main__' :
@@ -10,3 +16,5 @@ if __name__ == '__main__' :
     dartResult_5 = "1D#2S*3S"
     dartResult_6 = "1T2D3D#"
     dartResult_7 = "1D2S3T*"
+
+    print(solution(dartResult_1))
