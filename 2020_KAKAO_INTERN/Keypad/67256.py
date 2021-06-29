@@ -1,12 +1,13 @@
 def distance(target, left_loca, right_loca, hand) :
-    left_dis = abs(target[0] - left_loca[0]) + abs(target[1] - left_loca[1])
-    right_dis = abs(target[0] - right_loca[0]) + abs(target[1] - right_loca[1])
+    left_dis = abs(left_loca[0] - target[0]) + abs(left_loca[1] - target[1])
+    right_dis = abs(right_loca[0] - target[0]) + abs(right_loca[1] - target[1])
 
-    if (left_dis == right_dis and hand == "left") or left_dis < right_dis :
+    if left_dis == right_dis and hand == "left" or left_dis < right_dis :
         left_loca[0] = target[0]
         right_loca[1] = target[1]
         result = "L"
-    else :
+
+    elif left_dis == right_dis and hand == "right" or left_dis > right_dis :
         left_loca[0] = target[0]
         right_loca[1] = target[1]
         result = "R"
@@ -15,8 +16,6 @@ def distance(target, left_loca, right_loca, hand) :
 
 def solution(numbers, hand):
     answer = ''
-    handed = {"left": "L", "right": "R"}
-
     # keypad의 좌푯값
     keypad = {
         "1": [0, 0],
@@ -42,14 +41,16 @@ def solution(numbers, hand):
             left_loca[0] = attack[0]
             left_loca[1] = attack[1]
             pt = "L"
+
         elif num == 3 or num == 6 or num == 9 :
             right_loca[0] = attack[0]
             right_loca[1] = attack[1]
             pt = "R"
+
         else :
             left_loca, right_loca, pt = distance(attack, left_loca, right_loca, hand)
 
-        answer = answer + pt
+        answer += pt
 
     return answer
 
