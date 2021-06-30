@@ -1,5 +1,16 @@
 def solution(lottos, win_nums):
-    answer = []
+    answer = [0, 0]
+    score = [6, 6, 5, 4, 3, 2, 1]
+
+    cnt = 0
+    zero_cnt = lottos.count(0)
+
+    for num in lottos :
+        if num in win_nums :
+            cnt += 1
+
+    answer[0], answer[1] = score[cnt + zero_cnt], score[cnt]
+
     return answer
 
 if __name__ == '__main__' :
