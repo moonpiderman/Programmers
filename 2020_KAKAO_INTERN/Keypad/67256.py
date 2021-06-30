@@ -1,22 +1,31 @@
-def distance(target, left_loca, right_loca, hand) :
-    left_dis = abs(left_loca[0] - target[0]) + abs(left_loca[1] - target[1])
-    right_dis = abs(right_loca[0] - target[0]) + abs(right_loca[1] - target[1])
+import math
 
-    if left_dis == right_dis and hand == "left" or left_dis < right_dis :
-        left_loca[0] = target[0]
-        right_loca[1] = target[1]
-        result = "L"
+def distance_check(l_loca, r_loca, target, hand):
+    left = l_loca
+    right = r_loca
+    l_distance = math.sqrt(pow(abs(target[0] - left[0]), 2) + pow(abs(target[1] - left[1]), 2))
+    r_distance = math.sqrt(pow(abs(target[0] - right[0]), 2) + pow(abs(target[1] - right[1]), 2))
 
-    elif left_dis == right_dis and hand == "right" or left_dis > right_dis :
-        left_loca[0] = target[0]
-        right_loca[1] = target[1]
-        result = "R"
+    if l_distance == r_distance :
+        if hand == "left" :
+            finger = "L"
+            left = target
+        elif hand == "right" :
+            finger = "R"
+            right = target
 
-    return left_loca, right_loca, result
+    elif l_distance > r_distance :
+        finger = "R"
+        right = target
+
+    elif r_distance > l_distance :
+        finger = "L"
+        left = target
+
+    return left, right, finger
 
 def solution(numbers, hand):
     answer = ''
-    # keypad의 좌푯값
     keypad = {
         "1": [0, 0],
         "2": [0, 1],
@@ -31,27 +40,27 @@ def solution(numbers, hand):
         "0": [3, 1],
         "#": [3, 2]
     }
-    # 첫 손가락의 위치
-    left_loca = keypad["*"]
-    right_loca = keypad["#"]
+    # 초기 위치설정
+    l_loca = keypad["*"]
+    r_loca = keypad["#"]
+
+    print("첫 위치 :", l_loca, r_loca)
 
     for num in numbers :
-        attack = keypad[str(num)]
+        target = keypad[str(num)]
         if num == 1 or num == 4 or num == 7 :
-            left_loca[0] = attack[0]
-            left_loca[1] = attack[1]
-            pt = "L"
-
+            l_loca[0] = target[0]
+            l_loca[1] = target[1]
+            finger = "L"
         elif num == 3 or num == 6 or num == 9 :
-            right_loca[0] = attack[0]
-            right_loca[1] = attack[1]
-            pt = "R"
-
+            r_loca[0] = target[0]
+            r_loca[1] = target[1]
+            finger = "R"
         else :
-            left_loca, right_loca, pt = distance(attack, left_loca, right_loca, hand)
+            l_loca, r_loca, finger = distance_check(l_loca, r_loca, target, hand)
 
-        answer += pt
-
+        answer += finger
+        print(l_loca, r_loca)
     return answer
 
 if __name__ == '__main__' :
@@ -64,4 +73,6 @@ if __name__ == '__main__' :
     numbers_3 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
     hand_3 = "right"
 
-    print(solution(numbers_1, hand_1))
+    # print(solution(numbers_1, hand_1))
+    print(solution(numbers_2, hand_2))
+    # print(solution(numbers_3, hand_3))
