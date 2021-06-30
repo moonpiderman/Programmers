@@ -1,12 +1,11 @@
-import math
 def distance_check(l_loca, r_loca, target, hand):
     left = l_loca
     right = r_loca
     t = target
     h = hand
     finger = ""
-    l_distance = math.sqrt(math.pow(abs(t[0] - left[0]), 2) + math.pow(abs(t[1] - left[1]), 2))
-    r_distance = math.sqrt(math.pow(abs(t[0] - right[0]), 2) + math.pow(abs(t[1] - right[1]), 2))
+    l_distance = abs(left[0] - t[0]) + abs(left[1] - t[1])
+    r_distance = abs(right[0] - t[0]) + abs(right[1] - t[1])
 
     if l_distance == r_distance :
         if h == "left" :
@@ -43,22 +42,19 @@ def solution(numbers, hand):
         '#': [3, 2],
     }
     # 초기 위치설정
-    l_location = keypad["*"]
-    r_location = keypad["#"]
+    l_location = keypad['*']
+    r_location = keypad['#']
 
     for num in numbers :
         target = keypad[str(num)]
         if num == 1 or num == 4 or num == 7 :
-            l_location[0] = target[0]
-            l_location[1] = target[1]
+            l_location = target
             finger = "L"
         elif num == 3 or num == 6 or num == 9 :
-            r_location[0] = target[0]
-            r_location[1] = target[1]
+            r_location = target
             finger = "R"
         else :
             l_location, r_location, finger = distance_check(l_location, r_location, target, hand)
-
         answer += finger
     return answer
 
@@ -72,6 +68,6 @@ if __name__ == '__main__' :
     numbers_3 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
     hand_3 = "right"
 
-    # print(solution(numbers_1, hand_1))
+    print(solution(numbers_1, hand_1))
     print(solution(numbers_2, hand_2))
-    # print(solution(numbers_3, hand_3))
+    print(solution(numbers_3, hand_3))
