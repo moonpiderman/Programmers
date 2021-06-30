@@ -1,12 +1,33 @@
-from collections import deque
-
 def solution(dartResult):
-    answer = 0
-    dartResult = deque(dartResult)
+    dart_list = list(dartResult)
+    point = []
+    i = -1
 
-    print(dartResult)
+    for x in range(len(dart_list)) :
+        if dart_list[x].isdigit() :
+            if dart_list[x + 1].isdigit() :
+                point.append(10)
+            elif dart_list[x - 1].isdigit() :
+                continue
+            else :
+                point.append(int(dart_list[x]))
+            i += 1
 
-    return answer
+        else :
+            if dart_list[x] == 'D':
+                point[i] = pow(point[i], 2)
+            elif dart_list[x] == 'T':
+                point[i] = pow(point[i], 3)
+            elif dart_list[x] == '*':
+                if len(point) == 1:
+                    point[i] *= 2
+                else :
+                    point[i] *= 2
+                    point[i - 1] *= 2
+            elif dart_list[x] == '#':
+                point[i] *= -1
+
+    return sum(point)
 
 if __name__ == '__main__' :
     dartResult_1 = "1S2D*3T"
@@ -17,4 +38,4 @@ if __name__ == '__main__' :
     dartResult_6 = "1T2D3D#"
     dartResult_7 = "1D2S3T*"
 
-    print(solution(dartResult_1))
+    print(solution(dartResult_7))
