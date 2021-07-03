@@ -1,5 +1,13 @@
+from collections import deque
+
 def solution(board, moves):
     answer = 0
+    stack = [] # 쌓을 곳
+
+    for i in range(len(board)) :
+        board[i] = deque(board[i])
+
+
     return answer
 
 if __name__ == '__main__' :
