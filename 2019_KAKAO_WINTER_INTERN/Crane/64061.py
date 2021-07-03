@@ -1,6 +1,6 @@
 from collections import deque
 
-def solution(board, moves):
+def solution_fail(board, moves):
     answer = 0
     drop = [] # 쌓을 곳
     drop = deque(drop)
@@ -28,6 +28,13 @@ def solution(board, moves):
                 else :
                     drop.append(dpop)
                     drop.append(temper[idx].popleft())
+
+
+    return answer
+
+def solution(board, moves) :
+    answer = 0
+
 
 
     return answer
