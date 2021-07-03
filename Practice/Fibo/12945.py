@@ -6,7 +6,7 @@ def fibo_recursive(n) :
     elif n >= 2 :
         return fibo_recursive(n-1) + fibo_recursive(n-2)
 
-def fibo(n) :
+def fibo_iterative(n) :
     if n < 2 :
         return n
     a, b = 0, 1
@@ -16,7 +16,7 @@ def fibo(n) :
     return b
 
 def solution(n):
-    answer = fibo(n)
+    answer = fibo_iterative(n)
     answer %= 1234567
     return answer
 
