@@ -47,7 +47,6 @@ def solution_mine(people, limit) :
                 que.pop()
                 answer += 1
 
-
     return answer
 
 if __name__ == '__main__' :
