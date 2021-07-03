@@ -34,8 +34,20 @@ def solution_fail(board, moves):
 
 def solution(board, moves) :
     answer = 0
+    drop = []
 
-
+    for i in moves :
+        for j in range(len(board)) :
+            if board[j][i - 1] == 0:
+                pass
+            else :
+                drop.append(board[j][i - 1])
+                board[j][i - 1] = 0
+                break
+        if len(drop) > 1 and drop[len(drop) - 1] == drop[len(drop) - 2] :
+            drop.pop()
+            drop.pop()
+            answer += 2
 
     return answer
 
