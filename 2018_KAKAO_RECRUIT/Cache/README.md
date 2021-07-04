@@ -32,3 +32,5 @@
 > |5|["Jeju", "Pangyo", "Seoul", "NewYork", "LA", "SanFrancisco", "Seoul", "Rome", "Paris", "Jeju", "NewYork", "Rome"]|52|
 > |2|["Jeju", "Pangyo", "NewYork", "newyork"]|16|
 > |0|["Jeju", "Pangyo", "Seoul", "NewYork", "LA"]|25|
+
+## 📌 LRU 알고리즘을 활용하여야 한다!
