@@ -1,4 +1,4 @@
-### 🧑‍💻 [올바른 괄효](https://programmers.co.kr/learn/courses/30/lessons/12909)
+### 🧑‍💻 [올바른 괄호](https://programmers.co.kr/learn/courses/30/lessons/12909)
 
 > - 괄호가 바르게 짝지어졌다는 것은 '(' 문자로 열렸으면 반드시 짝지어서 ')' 문자로 닫혀야 한다는 뜻입니다. 예를 들어
 > > - "()()" 또는 "(())()" 는 올바른 괄호입니다.
