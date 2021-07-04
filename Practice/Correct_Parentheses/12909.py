@@ -15,7 +15,22 @@ def solution_fail(s):
         return True
 
 def solution(s):
-    return True
+    stack = []
+    for paren in s :
+        if paren == '(' :
+            stack.append(paren)
+        else :
+            if len(stack) == 0 :
+                return False
+            else :
+                stack.pop()
+
+    if len(stack) == 0 :
+        return True
+    else :
+        return False
+
+    # return True
 
 if __name__ == '__main__' :
     s_1 = "()()"
