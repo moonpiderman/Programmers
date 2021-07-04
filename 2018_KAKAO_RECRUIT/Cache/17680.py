@@ -1,5 +1,41 @@
-def solution(cacheSize, cities):
+def solution_other(cacheSize, cities):
     answer = 0
+    cache = [' '] * cacheSize
+
+    for city in cities :
+        city = city.lower()
+        if city in cache :
+            answer += 1
+            cache.remove(city)
+            cache.append(city)
+        else :
+            answer += 5
+            cache.append(city)
+            cache.pop(0)
+    return answer
+
+def solution(cacheSize, cities) :
+    answer = 0
+    cache = []
+
+    if cacheSize == 0 :
+        return len(cities) * 5
+
+    for city in cities :
+        city = city.lower()
+        if not city in cache :
+            if len(cache) < cacheSize :
+                answer += 5
+                cache.append(city)
+            else :
+                answer += 5
+                cache.pop(0)
+                cache.append(city)
+        else :
+            answer += 1
+            cache.remove(city)
+            cache.append(city)
+
     return answer
 
 if __name__ == '__main__' :
@@ -22,8 +58,8 @@ if __name__ == '__main__' :
     cities_6 = ["Jeju", "Pangyo", "Seoul", "NewYork", "LA"]
 
     print(solution(cacheSize_1, cities_1))
-    # print(solution(cacheSize_2, cities_2))
-    # print(solution(cacheSize_3, cities_3))
-    # print(solution(cacheSize_4, cities_4))
-    # print(solution(cacheSize_5, cities_5))
-    # print(solution(cacheSize_6, cities_6))
+    print(solution(cacheSize_2, cities_2))
+    print(solution(cacheSize_3, cities_3))
+    print(solution(cacheSize_4, cities_4))
+    print(solution(cacheSize_5, cities_5))
+    print(solution(cacheSize_6, cities_6))
