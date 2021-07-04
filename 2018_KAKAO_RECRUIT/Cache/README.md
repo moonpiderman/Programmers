@@ -34,4 +34,4 @@
 > |0|["Jeju", "Pangyo", "Seoul", "NewYork", "LA"]|25|
 
 ## 📌 LRU 알고리즘을 활용하여야 한다!
-### 📌 cache hit : 이미 있는 경우, cache miss : 없는 겨우
+### 📌 cache hit : 이미 있는 경우, cache miss : 없는 경우
