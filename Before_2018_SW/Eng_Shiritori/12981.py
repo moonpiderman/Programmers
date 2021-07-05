@@ -23,8 +23,22 @@ def solution_fail(n, words):
     return answer
 
 def solution(n, words):
-    answer = []
-    return answer
+    stack = []
+    member, count = 0, 0
+
+    stack.append(words[0])
+    last_spell = words[0][-1]
+
+    for i in range(1, len(words)) :
+        if words[i] in stack or words[i][0] != last_spell :
+            member = (i % n) + 1
+            count = (i // n) + 1
+            break
+        else :
+            stack.append(words[i])
+            last_spell = words[i][-1]
+
+    return [member, count]
 
 if __name__ == '__main__' :
     n_1 = 3
