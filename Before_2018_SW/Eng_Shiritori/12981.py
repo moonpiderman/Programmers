@@ -1,21 +1,29 @@
-def solution(n, words):
-    answer = []
+def solution_fail(n, words):
     stack = []
     member = {}
     for i in range(n) :
         tmp = []
         tmp.append(i + 1)
         tmp.append(0)
-        member[(i+1) % n] = tmp
+        member[(i + 1) % n] = tmp
 
-    for i in range(len(words)) :
-        member[i % 3][1] += 1
+    for i in range(len(words) - 1) :
+        member[i % n][1] += 1
         if not words[i] in stack :
             stack.append(words[i])
-    # 중복 로직 넣기
+    # print(member)
+    if len(words) % n == 0 :
+        if words[-1] in stack :
+            answer = member[len(words) % n]
+        else :
+            answer = [0, 0]
+    else :
+        answer = member[len(words) % n]
 
-    answer = member[len(words) % n]
+    return answer
 
+def solution(n, words):
+    answer = []
     return answer
 
 if __name__ == '__main__' :
