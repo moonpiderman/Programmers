@@ -19,6 +19,7 @@ def solution(n, t, m, p):
             cand.append(c)
 
     # 튜브만
+    # p - 1 인 이유는 index는 0부터 시작
     for i in range(p - 1, t * m, m):
         answer += cand[i]
 
