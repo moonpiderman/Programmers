@@ -1,5 +1,27 @@
 def solution(n, t, m, p):
+
+    # 재귀 함수를 활용한 진법 변환기
+    def convert(n, base):
+        arr = "0123456789ABCDEF"
+        q, r = divmod(n, base)
+        if q == 0:
+            return arr[r]
+        else:
+            return convert(q, base) + arr[r]
+
     answer = ''
+    cand = []
+
+    # 전체
+    for i in range(t * m) :
+        con = convert(i, t)
+        for c in con :
+            cand.append(c)
+
+    # 튜브만
+    for i in range(p - 1, t * m, m):
+        answer += cand[i]
+
     return answer
 
 if __name__ == '__main__' :
