@@ -14,7 +14,7 @@ def solution(n, t, m, p):
 
     # 전체
     for i in range(t * m) :
-        con = convert(i, t)
+        con = convert(i, n)
         for c in con :
             cand.append(c)
 
