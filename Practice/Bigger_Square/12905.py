@@ -1,5 +1,7 @@
 def solution(board):
     answer = 0
+
+
     return answer
 
 if __name__ == '__main__' :
