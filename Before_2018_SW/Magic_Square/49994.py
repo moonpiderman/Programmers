@@ -66,6 +66,7 @@ def solution(dirs) :
         if -5 <= next_x <= 5 and -5 <= next_y <= 5 :
             road.add((cur_x, cur_y, next_x, next_y))
             road.add((next_x, next_y, cur_x, cur_y))
+            print(road)
             cur_x, cur_y = next_x, next_y
 
     return len(road) // 2
