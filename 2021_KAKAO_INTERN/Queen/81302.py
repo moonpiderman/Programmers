@@ -5,8 +5,8 @@ def manhatten(p1, p2):
 
 def queen(board):
     new_board = [r for r in board]
-    ppl = []
-    man = []
+    ppl = [] # 사람이 있는 곳의 좌표
+    man = [] # manhatten distance
 
     for i in range(5):
         for j in range(5):
@@ -27,9 +27,22 @@ def queen(board):
             if new_board[chk[1][0]][chk[2][1]] == 'O' or new_board[chk[2][0]][chk[1][1]] == 'O':
                 really = 0
                 return really
+            # x 좌표 같은지
+            if chk[1][0] == chk[2][0] :
+                mid = max(chk[1][0], chk[2][0]) - 1
+                if new_board[mid][chk[1][1]] == 'O' :
+                    really = 0
+                    return really
+            # y 좌표 같은지
+            elif chk[1][1] == chk[2][1] :
+                mid = max(chk[1][1], chk[2][1]) - 1
+                if new_board[chk[1][0]][mid] == 'O' :
+                    really = 0
+                    return really
+        else :
+            continue
     really = 1
     return really
-
 
 def solution(places):
     result = []
@@ -37,16 +50,18 @@ def solution(places):
         result.append(queen(wait))
     return result
 
-places = [
-    ["POOOP", "OXXOX", "OPXPX", "OOXOX", "POXXP"],
-    ["POOPX", "OXPXP", "PXXXO", "OXXXO", "OOOPP"],
-    ["PXOPX", "OXOXP", "OXPXX", "OXXXP", "POOXX"],
-    ["OOOXX", "XOOOX", "OOOXX", "OXOOX", "OOOOO"],
-    ["PXPXP", "XPXPX", "PXPXP", "XPXPX", "PXPXP"]
-]
+if __name__ == '__main__' :
+    places = [
+        ["POOOP", "OXXOX", "OPXPX", "OOXOX", "POXXP"],
+        ["POOPX", "OXPXP", "PXXXO", "OXXXO", "OOOPP"],
+        ["PXOPX", "OXOXP", "OXPXX", "OXXXP", "POOXX"],
+        ["OOOXX", "XOOOX", "OOOXX", "OXOOX", "OOOOO"],
+        ["PXPXP", "XPXPX", "PXPXP", "XPXPX", "PXPXP"]
+    ]
 
-result = []
-for wait in places :
-    result.append(queen(wait))
+    test = [
+        ["PXOPX", "OXOXP", "OXPXX", "OXXXP", "POOXX"]
+    ]
 
-print(result)
+    # print(solution(places))
+    print(solution(test))
