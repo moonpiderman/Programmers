@@ -29,14 +29,14 @@ def queen(board):
                 return really
             # x 좌표 같은지
             if chk[1][0] == chk[2][0] :
-                mid = max(chk[1][0], chk[2][0]) - 1
-                if new_board[mid][chk[1][1]] == 'O' :
+                mid = max(chk[1][1], chk[2][1]) - 1
+                if new_board[chk[1][0]][mid] == 'O' :
                     really = 0
                     return really
             # y 좌표 같은지
             elif chk[1][1] == chk[2][1] :
-                mid = max(chk[1][1], chk[2][1]) - 1
-                if new_board[chk[1][0]][mid] == 'O' :
+                mid = max(chk[1][0], chk[2][0]) - 1
+                if new_board[mid][chk[1][1]] == 'O' :
                     really = 0
                     return really
         else :
@@ -60,7 +60,7 @@ if __name__ == '__main__' :
     ]
 
     test = [
-        ["PXOPX", "OXOXP", "OXPXX", "OXXXP", "POOXX"]
+        ["PXOPX", "OXOXP", "OXPOX", "OXXOP", "PXPOX"]
     ]
 
     print(solution(places))
