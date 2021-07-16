@@ -13,6 +13,7 @@ def correction(br):
     else:
         return False
 
+# 분기점 만들어주기
 def split_brack(br):
     cnt = 0
     for idx in range(len(br)):
