@@ -1,7 +1,10 @@
 def solution(citations):
+    # what = list(enumerate(citations, start=1))
+    # print(what)
     citations.sort(reverse=True)
     answer = max(map(min, enumerate(citations, start=1)))
     return answer
+
 
 
 '''
