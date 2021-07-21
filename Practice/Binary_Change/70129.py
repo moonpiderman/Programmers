@@ -1,32 +1,33 @@
-def counting(string, total_cnt, zero_cnt):
-    total_c = total_cnt
-    zero_c = zero_cnt
-    s = string
+def counting(string):
+    total_c = 0
+    zero_c = 0
+    aws = string
     tmp = []
 
-    for i in range(len(s)):
-        if s[i] == '0':
-            zero_c += 1
-        elif s[i] == '1':
-            tmp.append(s[i])
+    while aws != '1':
+        aws = list(aws)
+        for i in range(len(aws)):
+            if aws[i] == '0':
+                zero_c += 1
+            elif aws[i] == '1':
+                tmp.append(aws[i])
 
-    # bin(integer) 함수 사용해서 binary 값으로 변경해주기
+        length = len(tmp)
+        binary = bin(length)
+        aws = binary[2:]
+        total_c += 1
 
-    total_c += 1
-    return tmp, total_c, zero_c
+    return total_c, zero_c
 
 def solution(s):
     answer = []
-    total_cnt = 0
-    zero_cnt = 0
-
-    s = list(s)
-    while s == '1':
-        s, total_cnt, zero_cnt = counting(s, total_cnt, zero_cnt)
-
-    print(s)
+    total_cnt, zero_cnt = counting(s)
     print(total_cnt)
     print(zero_cnt)
+
+    # while s != '1':
+    #     s, total_cnt, zero_cnt = counting(s, total_cnt, zero_cnt)
+
     return answer
 
 if __name__ == '__main__':
