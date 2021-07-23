@@ -25,7 +25,23 @@ def solution_fail(arr):
     return answer
 
 def solution(arr):
-    answer = []
+    answer = [0, 0]
+    N = len(arr)
+
+    def comp(x, y, n):
+        chk = arr[x][y]
+        for i in range(x, x + n):
+            for j in range(y, y + n):
+                if arr[i][j] != chk:
+                    nn = n // 2
+                    comp(x, y, nn)
+                    comp(x + nn, y, nn)
+                    comp(x, y + nn, nn)
+                    comp(x + nn, y + nn, nn)
+                    return
+
+        answer[chk] += 1
+    comp(0, 0, N)
     return answer
 
 if __name__ == '__main__':
@@ -46,5 +62,5 @@ if __name__ == '__main__':
         [0, 0, 0, 0, 1, 1, 1, 1]
     ]
 
-    # print(solution(arr_1))
+    print(solution(arr_1))
     print(solution(arr_2))
