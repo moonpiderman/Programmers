@@ -1,7 +1,45 @@
 from collections import defaultdict
 from itertools import combinations
+from bisect import bisect_left
+
+def make_cases(tmp):
+    cases = []
+    for k in range(5):
+        for li in combinations([0, 1, 2, 3], k):
+            case = ''
+            for idx in range(4):
+                if idx not in li:
+                    case += tmp[idx]
+                else:
+                    case += '-'
+            cases.append(case)
+    return cases
 
 def solution(info, query):
+    answer = []
+    all_ppl = {}
+    for i in info:
+        seperate_info = i.split()
+        cases = make_cases(i.split())
+        for case in cases:
+            if case not in all_ppl.keys():
+                all_ppl[case] = [int(seperate_info[4])]
+            else:
+                all_ppl[case].append(int(seperate_info[4]))
+
+    for key in all_ppl.keys():
+        all_ppl[key].sort()
+
+    for q in query:
+        seperate_q = q.split()
+        target = seperate_q[0] + seperate_q[2] + seperate_q[4] + seperate_q[6]
+        if target in all_ppl.keys():
+            answer.append(len(all_ppl[target]) - bisect_left(all_ppl[target], int(seperate_q[7]), lo=0, hi=len(all_ppl[target])))
+        else:
+            answer.append(0)
+    return answer
+
+def solution_diff(info, query):
     answer = []
     info_dict = defaultdict(list)
     for i in info:
