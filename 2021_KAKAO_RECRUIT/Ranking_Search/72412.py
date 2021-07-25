@@ -20,7 +20,7 @@ def solution(info, query):
     all_ppl = {}
     for i in info:
         seperate_info = i.split()
-        cases = make_cases(i.split())
+        cases = make_cases(seperate_info)
         for case in cases:
             if case not in all_ppl.keys():
                 all_ppl[case] = [int(seperate_info[4])]
