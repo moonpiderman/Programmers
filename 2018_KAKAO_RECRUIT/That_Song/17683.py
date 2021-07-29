@@ -43,19 +43,51 @@ def code_change(line):
     if 'A#' in line : line.replace('A#', 'a')
     return line
 
-def solution(m, musicinfo):
+def solution_fail_too(m, musicinfo):
     answer = ('(None)', None)
     m = code_change(m)
     for info in musicinfo:
         sp, ep, title, codes = info.split(',')
-        sp_h, ep_h, sp_m, ep_m = map(int, sp.split(':') + ep.split(':'))
+        sp_h, sp_m, ep_h, ep_m = map(int, sp.split(':') + ep.split(':'))
         time = 60 * (ep_h - sp_h) + (ep_m - sp_m)
-        line = code_change(info)
-        melody = (line * time)[:time]
+        codes = code_change(codes)
+        melody = (codes * time)[:time]
         if m in melody:
             if (answer[1] == None) or (time > answer[1]):
                 answer = (title, time)
     return answer[0]
+
+def solution(m, musicinfo):
+    scales = {
+        "C#": "H",
+        "D#": "I",
+        "F#": "J",
+        "G#": "K",
+        "A#": "L",
+    }
+    for _from, _to in scales.items():
+        m = m.replace(_from, _to)
+
+    max_played, answer = 0, "(None)"
+    for info in musicinfo:
+        start, end, title, scale = info.split(',')
+        for _from, _to in scales.items():
+            scale = scale.replace(_from, _to)
+        during_music = len(scale)
+
+        s_h, s_m = start.split(':')
+        e_h, e_m = end.split(':')
+        play_time = (int(e_h) - int(s_h)) * 60 + int(e_m) - int(s_m)
+
+        real_play_time = scale * (play_time // during_music)
+
+        diff = play_time % during_music
+        real_play_time += scale[:diff]
+
+        if m in real_play_time and play_time > max_played:
+            max_played = play_time
+            answer = title
+    return answer
 
 if __name__ == '__main__' :
     m_1 = "ABCDEFG"
