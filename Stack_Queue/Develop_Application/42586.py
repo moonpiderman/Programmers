@@ -14,3 +14,13 @@ def solution(progresses, speeds):
             second += 1
     return_value.append(count)
     return return_value
+
+if __name__ == '__main__':
+    progresses_1 = [93, 30, 55]
+    speeds_1 = [1, 30, 5]
+
+    progresses_2 = [95, 90, 99, 99, 80, 99]
+    speeds_2 = [1, 1, 1, 1, 1, 1]
+
+    print(solution(progresses_1, speeds_1))
+    print(solution(progresses_2, speeds_2))
