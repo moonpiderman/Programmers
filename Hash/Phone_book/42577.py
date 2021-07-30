@@ -7,3 +7,12 @@ def solution(phone_book):
             answer = False
             break
     return answer
+
+def solution_later(phone_book):
+    phone_book = sorted(phone_book, key=len)
+
+    for i in range(len(phone_book)):
+        for j in range(i + 1, len(phone_book)):
+            if phone_book[j].startswith(phone_book[i]):
+                return False
+    return True
