@@ -23,3 +23,12 @@ def solution(answers):
             answer.append(people + 1)
 
     return answer
+
+if __name__ == '__main__':
+    answers = [
+        [1, 2, 3, 4, 5],
+        [1, 3, 2, 4, 2]
+    ]
+
+    for ans in answers:
+        print(solution(ans))
