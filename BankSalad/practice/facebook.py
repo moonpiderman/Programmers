@@ -25,3 +25,7 @@ class SparseArray:
         if v is None:
             return 0
         return v
+
+if __name__ == '__main__':
+    array = [0, 0, 0, 0, 0, 2, 1, 0, 0, 3, 0, 7, 0, 1, 9, 0, 0, 0, 11]
+    test = SparseArray(array, 19)
